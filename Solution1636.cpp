@@ -1,0 +1,16 @@
+#include "../leetcode.h"
+
+class Solution
+{
+public:
+    vector<int> frequencySort (vector<int> &nums) {
+        unordered_map<int, int> freq;
+        for(int num: nums)
+            freq[num]++;
+
+        sort(nums.begin(), nums.end(), [&](int a, int b)
+             { (freq[a] == freq[b]) ? (a > b) : (freq[a] < freq[b]) });
+
+        return nums;
+    }
+};
